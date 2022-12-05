@@ -1,27 +1,51 @@
 <template>
   <section class="container">
-    <h2>{{ userName }}</h2>
-    <h3>{{ age }}</h3>
-    <button @click="setAge">Change Age</button>
+    <h2>{{ uName }}</h2>
+    <h3>{{ uAge }}</h3>
+
+    <button @click="setNewAge">Change Age</button>
+
+    <div>
+      <input type="text" placeholder="First Name" @input="setFirstName" />
+      <input type="text" placeholder="Last Name" @input="setLastName" />
+    </div>
   </section>
 </template>
 
 <script>
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 
 export default {
   setup() {
-    const uName = ref('Alfredo');
-    const uAge = ref(31);
+    // Data
+    let uName = ref('Alfredo');
+    let firstName = ref('');
+    let lastName = ref('');
+    let uAge = ref(21);
 
+
+    computed
+
+    // Methods
     function setNewAge() {
-      uAge.value = 32;
+      uAge.value = 22;
     }
 
+    function setFirstName(event) {
+      firstName.value = event.target.value;
+    }
+
+    function setLastName(event) {
+      lastName.value = event.target.value;
+    }
+
+    // Return
     return {
-      userName: uName,
-      age: uAge,
-      setAge: setNewAge
+      uName,
+      uAge,
+      setNewAge,
+      setFirstName,
+      setLastName
     };
   }
 };
