@@ -18,13 +18,14 @@ import { ref, computed } from 'vue';
 export default {
   setup() {
     // Data
-    let uName = ref('Alfredo');
     let firstName = ref('');
     let lastName = ref('');
     let uAge = ref(21);
 
-
-    computed
+    // Computed
+    let uName = computed(() => {
+      return firstName.value + ' ' + lastName.value;
+    });
 
     // Methods
     function setNewAge() {
